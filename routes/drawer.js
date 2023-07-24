@@ -2,7 +2,7 @@ import * as React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 
-// Componenets
+// Components
 import HomeNavigator from './homeStack';
 import AboutNavigator from './aboutStack';
 import ContactNavigator from './contactStack';

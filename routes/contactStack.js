@@ -13,7 +13,7 @@ function ContactNavigator () {
         name="Contact"
         component={Contact}
         screenOptions={{
-          headerShown: true,
+          headerShown: false,
           headerStyle: {
             backgroundColor: 'blue',
           },
@@ -23,11 +23,7 @@ function ContactNavigator () {
           },
         }}
       >
-        <Stack.Screen
-          name="Contact"
-          component={Contact}
-          options={{headerShown: false}}
-        />
+        <Stack.Screen name="Contact" component={Contact} />
       </Stack.Navigator>
     </NavigationContainer>
   );

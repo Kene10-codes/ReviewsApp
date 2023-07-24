@@ -14,7 +14,8 @@ function RootNavigator () {
         name="Home"
         component={Home}
         screenOptions={{
-          headerShown: true,
+          headerShown: false,
+          headerShadowVisible: true,
           headerStyle: {
             backgroundColor: 'blue',
           },
@@ -24,11 +25,7 @@ function RootNavigator () {
           },
         }}
       >
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{headerShown: false}}
-        />
+        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen
           name="Review"
           component={ReviewDetails}
