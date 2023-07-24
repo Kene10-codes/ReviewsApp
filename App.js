@@ -1,36 +1,55 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import AppLoading from 'expo-app-loading';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // Components
-import Home from './screens/Home.js';
+import Navigator from './routes/homeStack';
+import Home from './screens/Home';
+import ReviewDetails from './screens/ReviewDetails';
 
-// Get Fonts declarations
-const getFonts = () =>
-  Font.loadAsync ({
-    'nunitosans-regular': require ('./fonts/NunitoSans_7pt-Regular.ttf'),
-    'nunitosans-semibold': require ('./fonts/NunitoSans_7pt-SemiBold.ttf'),
-  });
+const Stack = createNativeStackNavigator ();
 
 export default function App () {
-  const [fontsLoaded, setFontsLoaded] = useState (false);
+  const [appIsReady, setAppIsReady] = useState (false);
 
-  if (fontsLoaded) {
-    return (
-      <View style={styles.container}>
-        <Home />
-      </View>
-    );
-  } else {
-    return (
-      <AppLoading
-        startAsync={getFonts}
-        onFinish={() => setFontsLoaded (true)}
-        onError={console.warn}
-      />
-    );
+  // Load the Fonts
+  useEffect (() => {
+    async function prepare () {
+      try {
+        await Font.loadAsync ({
+          'nunitosans-regular': require ('./fonts/NunitoSans_7pt-Regular.ttf'),
+          'nunitosans-semibold': require ('./fonts/NunitoSans_7pt-SemiBold.ttf'),
+          'nunitosans-italic': require ('./fonts/NunitoSans_10pt-Italic.ttf'),
+        });
+
+        await new Promise (resolve => setTimeout (resolve, 2000));
+      } catch (err) {
+        console.warn (err);
+      } finally {
+        setAppIsReady (true);
+      }
+    }
+
+    prepare ();
+  }, []);
+
+  const onLayoutRootView = useCallback (
+    async () => {
+      if (appIsReady) {
+        await SplashScreen.hideAsync ();
+      }
+    },
+    [appIsReady]
+  );
+
+  if (!appIsReady) {
+    return null;
   }
+
+  return <Navigator />;
 }
 
 const styles = StyleSheet.create ({

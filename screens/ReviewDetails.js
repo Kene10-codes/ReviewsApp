@@ -1,18 +1,20 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 import {globalStyles} from '../styles/globalStyles';
 
-export default function Home () {
+export default function ReviewDetails({navigation, route}) {
+  const {title, body, rating} = route.params;
   return (
-    <View>
-      <Text style={globalStyles.titleText}>Review Details Screen</Text>
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.titleText}>
+        {title}
+      </Text>
+      <Text style={globalStyles.titleText}>
+        {body}
+      </Text>
+      <Text style={globalStyles.titleText}>
+        Rating: {rating}
+      </Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create ({
-  title: {
-    fontFamily: 'nunitosans-semibold',
-    fontSize: 24,
-  },
-});
