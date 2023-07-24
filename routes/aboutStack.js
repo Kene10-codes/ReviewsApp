@@ -1,18 +1,18 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from '../screens/Home';
-import ReviewDetails from '../screens/ReviewDetails';
+import About from '../screens/About';
+import Contact from '../screens/Contact';
 
 const Stack = createNativeStackNavigator ();
 
-function RootNavigator () {
+function AboutNavigator () {
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator
-        initialRouteName="Home"
-        name="Home"
-        component={Home}
+        initialRouteName="About"
+        name="About"
+        component={About}
         screenOptions={{
           headerShown: true,
           headerStyle: {
@@ -25,27 +25,13 @@ function RootNavigator () {
         }}
       >
         <Stack.Screen
-          name="Home"
-          component={Home}
+          name="About"
+          component={About}
           options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Review"
-          component={ReviewDetails}
-          options={({route}) => ({
-            title: route.params.name,
-            headerStyle: {
-              backgroundColor: 'blue',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-export default RootNavigator;
+export default AboutNavigator;

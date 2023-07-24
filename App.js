@@ -1,16 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react';
+import 'react-native-gesture-handler';
 import {StyleSheet, View, Text} from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // Components
-import Navigator from './routes/homeStack';
-import Home from './screens/Home';
-import ReviewDetails from './screens/ReviewDetails';
-
-const Stack = createNativeStackNavigator ();
+import Navigator from './routes/drawer';
 
 export default function App () {
   const [appIsReady, setAppIsReady] = useState (false);
