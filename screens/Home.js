@@ -15,6 +15,7 @@ import {MaterialIcons} from '@expo/vector-icons';
 
 // Components
 import ReviewForm from './ReviewForm';
+import Card from '../components/card';
 
 export default function Home({navigation}) {
   const [modalOpen, setModalOpen] = useState (false);
@@ -78,11 +79,12 @@ export default function Home({navigation}) {
         renderItem={({item}) => (
           <TouchableOpacity
             onPress={() => navigation.navigate ('Review', item)}
-            style={globalStyles.review}
           >
-            <Text style={globalStyles.reviewText}>
-              {item.key}. {item.title}
-            </Text>
+            <Card>
+              <Text style={globalStyles.reviewText}>
+                {item.key}. {item.title}
+              </Text>
+            </Card>
           </TouchableOpacity>
         )}
         keyExtractor={item => item.key}

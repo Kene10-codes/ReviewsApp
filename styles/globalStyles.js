@@ -9,18 +9,11 @@ export const globalStyles = StyleSheet.create ({
     fontFamily: 'nunitosans-semibold',
     fontSize: 18,
     color: '#333',
+    paddingTop: 8,
   },
   paragraph: {
     lineHeight: 20,
     marginVertical: 8,
-  },
-  review: {
-    padding: 5,
-    padding: 10,
-    marginVertical: 5,
-    borderColor: '#ddd',
-    borderWidth: 1,
-    backgroundColor: 'ivory',
   },
   reviewText: {
     fontFamily: 'nunitosans-semibold',
