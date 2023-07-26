@@ -20,6 +20,7 @@ export const globalStyles = StyleSheet.create ({
     marginVertical: 5,
     borderColor: '#ddd',
     borderWidth: 1,
+    backgroundColor: 'ivory',
   },
   reviewText: {
     fontFamily: 'nunitosans-semibold',
@@ -29,12 +30,17 @@ export const globalStyles = StyleSheet.create ({
   input: {
     borderColor: '#ddd',
     borderWidth: 1,
-    borderRadius: 3,
-    fontSize: 18,
-    marginVertical: 5,
-    padding: 5,
+    borderRadius: 15,
+    fontSize: 16,
+    marginVertical: 7,
+    padding: 8,
+  },
+  errorText: {
+    color: 'crimson',
+    fontWeight: 'bold',
+    paddingVertical: 2,
   },
   button: {
-    marginTop: 10,
+    marginVertical: 10,
   },
 });
