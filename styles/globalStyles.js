@@ -13,7 +13,8 @@ export const globalStyles = StyleSheet.create ({
   },
   paragraph: {
     lineHeight: 20,
-    marginVertical: 8,
+    marginVertical: 4,
+    fontSize: 16,
   },
   reviewText: {
     fontFamily: 'nunitosans-semibold',

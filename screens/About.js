@@ -4,8 +4,10 @@ import {globalStyles} from '../styles/globalStyles';
 
 export default function About () {
   return (
-    <View>
-      <Text style={globalStyles.titleText}>About Screen</Text>
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.paragraph}>
+        Welcome to Reviews Application, where innovation meets simplicity!
+      </Text>
     </View>
   );
 }

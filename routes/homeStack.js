@@ -4,20 +4,27 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../screens/Home';
 import ReviewDetails from '../screens/ReviewDetails';
 
+// Components
+import Menu from '../components/menu';
+
 const Stack = createNativeStackNavigator ();
 
-function RootNavigator () {
+function RootNavigator({navigation}) {
+  // Open Drawer Function
+  const openDrawer = () => {
+    return navigation.openDrawer ();
+  };
+
   return (
     <NavigationContainer independent={true}>
       <Stack.Navigator
         initialRouteName="Home"
-        name="Home"
         component={Home}
         screenOptions={{
-          headerShown: false,
           headerShadowVisible: true,
+          headerShown: true,
           headerStyle: {
-            backgroundColor: 'blue',
+            backgroundColor: 'maroon',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -25,16 +32,19 @@ function RootNavigator () {
           },
         }}
       >
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={({route}) => ({
+            headerTitle: props => <Menu title="Home" onPress={openDrawer} />,
+          })}
+        />
         <Stack.Screen
           name="Review"
           component={ReviewDetails}
           options={({route}) => ({
             title: route.params.name,
-            headerStyle: {
-              backgroundColor: 'blue',
-            },
-            headerTintColor: '#fff',
+            headerShown: true,
             headerTitleStyle: {
               fontWeight: 'bold',
             },
